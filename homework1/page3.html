@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>page3</title>
+    <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+    <header>
+        <h1>Flutter</h1>
+        <div class="search">
+            <span class="searchfield">Search</span>
+            <img src="./icons/toolbar_find.ico" class="search-icon"/>
+        </div>
+    </header>
+    
+    <main>
+        <div id="Profile">
+            <div id="myProfile">
+                <img class="avatar" src="icons/avatar.png" alt="Martin" />
+                <p class="name">Martin Hristov</p>
+            </div>
+            <div id="Info">
+                <div>
+                    <p class="label">Posts</p>
+                    <p id="number">1</p>
+                </div>
+                <div>
+                    <p class="label">Reactions</p>
+                    <p id="number">7</p>
+                </div>
+                <button class="logout">Log Out</button>
+            </div>
+        </div>
+        
+        <div id="Feed">
+            <div id="newPost">
+                <img class="avatar" id="newPostAvatar" src="icons/avatar.png" alt="Martin" />
+                <div class="message">
+                    <span class="saySomething">Say something</span>
+                    <img src="./icons/message.png" class="search-icon"/>
+                </div>
+            </div>
+            
+            <div class="post">
+                <img class="avatar" id="feedAvatar" src="icons/avatar.png" alt="Martin" />
+                <div class="content">
+                    <p><b>Ivan Ivanov</b> <bdi>&deg; 5 seconds ago</bdi>  </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quisquam natus? Molestiae recusandae provident, sit accusamus, aperiam pariatur error ipsa perspiciatis iste quidem itaque quis quasi similique hic exercitationem fuga?</p>
+                    <img class="thumbs" src="icons/thumbs_up.ico" alt="thumbs_up">
+                    <label class="thumbsLabel" for="thumbs">5</label>
+                    <img class="thumbs" src="icons/thumbs_down.ico" alt="">
+                    <label class="thumbsLabel" for="thumbs">3</label>
+                </div>
+                <img class="remove" src="icons/dialog_close.ico">
+            </div>
+            
+            <div class="post">
+                <img class="avatar" id="feedAvatar" src="icons/avatar.png" alt="Martin" />
+                <div class="content">
+                    <p><b>Martin Hristov</b> <bdi>&deg; Last month</bdi>  </p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                    <img class="thumbs" src="icons/thumbs_up.ico" alt="thumbs_up">
+                    <label class="thumbsLabel" for="thumbs">9</label>
+                    <img class="thumbs" src="icons/thumbs_down.ico" alt="">
+                    <label class="thumbsLabel" for="thumbs">6</label>
+                </div>
+                <img class="remove" src="icons/dialog_close.ico">
+            </div>
+        </div>
+    </main>
+</body>
+</html>
