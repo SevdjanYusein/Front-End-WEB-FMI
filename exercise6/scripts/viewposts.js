@@ -3,6 +3,10 @@
 	const tweetsDB = db.ref('/tweets').limitToFirst(100);
 	const postContainer = document.getElementById('post-container');
 	const newPost = document.getElementById('new-post');
+
+	const likedTweets = [];
+	const dislikedTweets = [];
+
 	const post = data => {
 		const state = data.val();
 
@@ -74,12 +78,29 @@
 
 		div.querySelector('.like-btn').addEventListener('click', event => {
 			event.preventDefault();
-			tweet.incrementLikes(event.target.getAttribute('data-id'));
+			let index = likedTweets.indexOf(event.target.getAttribute('data-id'));
+			if ( index === -1) {
+				tweet.incrementLikes(event.target.getAttribute('data-id'));
+				likedTweets.push(event.target.getAttribute('data-id'));
+			} else {
+				tweet.decrementLikes(event.target.getAttribute('data-id'));
+				likedTweets.splice(index, 1);
+			}
+
 		});
 
 		div.querySelector('.dislike-btn').addEventListener('click', event => {
 			event.preventDefault();
-			tweet.incrementDislikes(event.target.getAttribute('data-id'));
+
+			let index = dislikedTweets.indexOf(event.target.getAttribute('data-id'));
+			if ( index === -1) {
+				tweet.incrementDislikes(event.target.getAttribute('data-id'));
+				dislikedTweets.push(event.target.getAttribute('data-id'));
+			} else {
+				tweet.decrementDislikes(event.target.getAttribute('data-id'));
+				dislikedTweets.splice(index, 1);
+			}
+
 		});
 
 		div.querySelector('.post-close').addEventListener('click', event => {
@@ -100,10 +121,7 @@
 		document.querySelector(`.dislike-btn[data-id=${data.key}]`).nextElementSibling.innerText = data.val().dislikes;
 
 		this.auth.getUserStats(firebase.auth().currentUser.uid).once('value').then(data => {
-			const {
-				likes,
-				tweets
-			} = data.val();
+			const {	likes, tweets } = data.val();
 			document.getElementById("profile-posts-count").innerText = tweets;
 			document.getElementById("profile-likes-count").innerText = likes;
 		});
